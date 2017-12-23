@@ -113,7 +113,7 @@ function cleanUp (set, fn) {
 }
 
 function up (set, fn) {
-  runMigrations(set, 'up', program.args[0], function (err) {
+  runMigrations(set, 'up', { migrationName: program.args[0] }, function (err) {
     if (err) {
       return fn(err)
     }

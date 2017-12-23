@@ -61,7 +61,7 @@ migrate.load({
     log(direction, migration.title)
   })
 
-  runMigrations(set, 'down', program.args[0], function (err) {
+  runMigrations(set, 'down', { migrationName: program.args[0] }, function (err) {
     if (err) {
       log('error', err)
       process.exit(1)

@@ -154,20 +154,20 @@ describe('migration set', function () {
 
   it('should migrate to named migration', function (done) {
     assertNoPets()
-    set.up('1-add-guy-ferrets.js', function (err) {
+    set.up({ migrationName: '1-add-guy-ferrets.js' }, function (err) {
       assert.ifError(err)
       assertFirstMigration()
-      set.up('2-add-girl-ferrets.js', function (err) {
+      set.up({ migrationName: '2-add-girl-ferrets.js' }, function (err) {
         assert.ifError(err)
         assertSecondMigration()
-        set.down('2-add-girl-ferrets.js', function (err) {
+        set.down({ migrationName: '2-add-girl-ferrets.js' }, function (err) {
           assert.ifError(err)
           assertFirstMigration()
-          set.up('2-add-girl-ferrets.js', function (err) {
+          set.up({ migrationName: '2-add-girl-ferrets.js' }, function (err) {
             assert.ifError(err)
             assertSecondMigration()
             assert.equal(set.lastRun, '2-add-girl-ferrets.js')
-            set.down('2-add-girl-ferrets.js', function (err) {
+            set.down({ migrationName: '2-add-girl-ferrets.js' }, function (err) {
               assert.ifError(err)
               assert.equal(set.lastRun, '1-add-guy-ferrets.js')
               done()

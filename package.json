@@ -1,5 +1,5 @@
 {
-  "name": "migrate",
+  "name": "@ash/migrate",
   "version": "1.1.0",
   "description": "Abstract migration framework for node",
   "keywords": [

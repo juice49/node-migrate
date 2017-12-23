@@ -123,7 +123,7 @@ exports.down = function (next) {
 ### Advanced migration creation
 
 When creating migrations you have a bunch of other options to help you control how the migrations
-are created.  You can fully configure the way the migration is made with a `generator`, which is just a 
+are created.  You can fully configure the way the migration is made with a `generator`, which is just a
 function exported as a node module.  A good example of a generator is the  default one [shipped with
 this package](https://github.com/tj/node-migrate/blob/b282cacbb4c0e73631d651394da52396131dd5de/lib/template-generator.js).
 
@@ -162,7 +162,7 @@ $ migrate
   migration : complete
 ```
 
-Subsequent attempts will simply output "complete", as they have already been executed. `migrate` knows this because it stores the current state in 
+Subsequent attempts will simply output "complete", as they have already been executed. `migrate` knows this because it stores the current state in
 `./.migrate` which is typically a file that SCMs like GIT should ignore.
 
 ```
@@ -233,12 +233,12 @@ Calls the callback with a `Set` based on the options passed.  Options:
 - `filterFunction`: A filter function which will be called for each file found in the migrations directory
 - `sortFunction`: A sort function to ensure migration order
 
-### `Set.up([migration, ]cb)`
+### `Set.up([migration|options, ]cb)`
 
 Migrates up to the specified `migration` or, if none is specified, to the latest
 migration. Calls the callback `cb`, possibly with an error `err`, when done.
 
-### `Set.down([migration, ]cb)`
+### `Set.down([migration|options, ]cb)`
 
 Migrates down to the specified `migration` or, if none is specified, to the
 first migration. Calls the callback `cb`, possibly with an error `err`, when
